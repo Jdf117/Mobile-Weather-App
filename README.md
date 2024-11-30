@@ -18,7 +18,8 @@ My plan:
 
 Notes:
 
-I used react-native-elements module to use cards for the UI (npm install @rneui/themed @rneui/base)
+I used react-native-elements module to use cards for the UI (npm install @rneui/themed @rneui/base).
+Added expo linear gradient and tabs. 
 
 
 

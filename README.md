@@ -16,6 +16,7 @@ I used react-native-elements module to use cards for the UI (npm install @rneui/
 Issues I ran into during the assignemnt: 
  1) Components don't work -- decided to code it straight into index.tsx and fix later 
  2) Ran into NativeViewGesture Handler Error 
+      
       Issues: 
             - textInput tag and including its props did not work properly
             - errors popped up that could not be dismissed because the app would not load
@@ -28,6 +29,7 @@ Issues I ran into during the assignemnt:
 
 
  3) My weather and Forecast types were not recognized 
+      
       Issues: 
             - Data was able to be read and displayed on UI
       Cause:
@@ -38,7 +40,8 @@ Issues I ran into during the assignemnt:
             - this allowed my access the array and other string data that was return in the API response
 
 4) GitHub problems 
-      Issues: 
+     
+     Issues: 
          - could not push to repo 
          - having authentication issues pushing 
 

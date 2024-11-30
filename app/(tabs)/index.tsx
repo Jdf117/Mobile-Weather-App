@@ -1,11 +1,12 @@
 import { Text, View, StyleSheet, Button, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import React, { useState, useEffect } from 'react';
-import getWeatherForecast from '../service/weatherService';
+import getWeatherForecast from '../../service/weatherService';
 import { Card } from '@rneui/themed';
+import {LinearGradient} from 'expo-linear-gradient';
 
 import axios from 'axios';
 import {Link} from 'expo-router';
-import { CardDivider } from "@rneui/base/dist/Card/Card.Divider";
+
 
 type Weather = {
   weather: {
@@ -57,7 +58,10 @@ export default function App () {
 
   return (
     <>
-    <ScrollView>
+    <View style={styles.myBackground}>
+      <LinearGradient       colors={['#0c93cf', '#afd7e8','#f4d41f','#fe9555']}
+        style={styles.container}>
+    <ScrollView style={{width: '100%'}}>
       <Card containerStyle={{borderRadius: 10}}>
       <View style={styles.container}>
         <Card.Title style={{marginTop: 10}} >Enter your location!</Card.Title>
@@ -102,15 +106,8 @@ export default function App () {
         </Card>
 
     </ScrollView>
-
-  
-
-{/* 
-        <View style={styles.container} >
-      <Text style={styles.text}>Home Screen</Text>
-      <Link href='/about' style={styles.button}> Go to About screen</Link>
-    </View> */}
-
+    </LinearGradient>
+    </View>
     </>
 
   );
@@ -119,10 +116,24 @@ export default function App () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width:'100%',
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   }, 
+  myBackground:{
+    flex: 1,
+    backgroundColor: '#25292e',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  gradient: {
+    flex: 1,
+    height: 570,
+    width: 500,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   text:{
     color: '#fff',
   },
@@ -164,7 +175,21 @@ const styles = StyleSheet.create({
   humidity:{
     marginBottom: 5,
     color: '#57aacf'
-  }
+  },
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5
+  },
+  buttonText: {
+    fontSize: 18,
+    fontFamily: 'Gill Sans',
+    textAlign: 'center',
+    margin: 10,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+  },
 
 });
 

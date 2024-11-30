@@ -77,7 +77,7 @@ export default function App () {
             <Card.Title>Current Weather in {city}</Card.Title>
             {/* <Text style={styles.currentWeather} >Current Weather in {city}</Text> */}
             <Text style={styles.description}>{currentWeather.weather[0].description}</Text>
-            <Text style={styles.temp}>Temperature: {currentWeather.main.temp} °C</Text>
+            <Text style={styles.temp}>Temp: {currentWeather.main.temp} °C</Text>
             <Text style={styles.humidity}>Humidity: {currentWeather.main.humidity} %</Text>
           </View>
          )}

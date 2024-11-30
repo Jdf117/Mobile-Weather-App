@@ -13,7 +13,7 @@ Notes:
 I used react-native-elements module to use cards for the UI (npm install @rneui/themed @rneui/base)
 
 
-Issues I ran into during the assignemnt: 
+Issues I ran into during the assignment: 
  1) Components don't work -- decided to code it straight into index.tsx and fix later 
  2) Ran into NativeViewGesture Handler Error 
       

@@ -1,3 +1,5 @@
+//Update, changed branch 
+
 import { Text, View, StyleSheet, Button, SafeAreaView, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import React, { useState, useEffect } from 'react';
 import getWeatherForecast from '../service/weatherService';

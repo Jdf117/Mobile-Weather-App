@@ -1,50 +1,57 @@
-# Welcome to your Expo app 👋
+This is my simple mobile weather app that tells the 5 day forcast of the location the user enters. UI is simple and easy to understand. 
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This time, I decided to begin this project by planning my approach and write logs every step of the way for my own reference. This enabled me to write this detailed README.md file. 
 
-## Get started
+My plan: 1) Look through class notes and reference material to understand fundamentals 
+         2) Go through expo tutorial to figure out what kind of code i can utilize in my assignment 
+         3) Set up React-native project using EXPO and its basic UI layout 
+         4) Use API to fetch weather data and display it in the app
+         5) Add functionality to search for location and display 5 day forecast
+         6) Validate data and display on UI in a clean and simple manner
+         
+Notes: 
+I used react-native-elements module to use cards for the UI (npm install @rneui/themed @rneui/base)
 
-1. Install dependencies
 
-   ```bash
-   npm install
-   ```
+Issues I ran into during the assignemnt: 
+ 1) Components don't work -- decided to code it straight into index.tsx and fix later 
+ 2) Ran into NativeViewGesture Handler Error 
+      Issues: 
+            - textInput tag and including its props did not work properly
+            - errors popped up that could not be dismissed because the app would not load
 
-2. Start the app
+      Cause: 
+            - imported textInput from react-native-gesture-handler 
 
-   ```bash
-    npx expo start
-   ```
+      Fix: 
+            - imported TextInput from react-Native instead
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+ 3) My weather and Forecast types were not recognized 
+      Issues: 
+            - Data was able to be read and displayed on UI
+      Cause:
+            - types were not explcitely defined
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+      Fix: 
+            - created type for Weather and forecast with appropriate attributes (ie temp, humidity and description). 
+            - this allowed my access the array and other string data that was return in the API response
 
-## Get a fresh project
+4) GitHub problems 
+      Issues: 
+         - could not push to repo 
+         - having authentication issues pushing 
 
-When you're ready, run:
+      Cause: 
+         - I ssh'd into remote repo with default origin branch name that did not match default branch on local repo. Main and master respectively. 
+         - caused a conflict in the branches
+         - Authentication issue was just simple permissions issues on my local machine
 
-```bash
-npm run reset-project
-```
+      Fix: 
+         - changed the default branch on remote repo to master and deleted main branch
+         - changed permissions for remote access
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Learn more
 
-To learn more about developing your project with Expo, look at the following resources:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+  

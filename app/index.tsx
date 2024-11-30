@@ -1,6 +1,4 @@
-//Update, changed branch 
-
-import { Text, View, StyleSheet, Button, SafeAreaView, TextInput, TouchableOpacity, ScrollView } from "react-native";
+import { Text, View, StyleSheet, Button, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import React, { useState, useEffect } from 'react';
 import getWeatherForecast from '../service/weatherService';
 import { Card } from '@rneui/themed';
@@ -63,10 +61,10 @@ export default function App () {
       <Card containerStyle={{borderRadius: 10}}>
       <View style={styles.container}>
         <Card.Title style={{marginTop: 10}} >Enter your location!</Card.Title>
-        {/* <Text style={styles.header}>Search your city!</Text> */}
         <TextInput style={styles.input} value={city} placeholder="Input your city" onChangeText={setCity}/>
         <TouchableOpacity style={styles.button}><Button title="Forecast" onPress={() => fetchWeather(city)}/></TouchableOpacity>
       </View>
+
       </Card>
          {/* Display Current Weather */}
         <Card containerStyle={{borderRadius: 10}}>
@@ -80,11 +78,11 @@ export default function App () {
           </View>
          )}
         </Card>  
+
         <Card containerStyle={{borderRadius: 10}}>
           {forecast.length > 0 && (
             <View style={styles.forecastContainer}>
               <Card.Title>Weather Forecast </Card.Title>
-              {/* <Text style={styles.subtitle}>5-Day Weather Forecast</Text> */}
               <ScrollView horizontal={true}>
               <View style={{flexDirection: 'row'}}>
               {forecast.map((day, index) => (
@@ -102,6 +100,7 @@ export default function App () {
             </View>
           )}
         </Card>
+
     </ScrollView>
 
   

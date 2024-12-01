@@ -19,7 +19,7 @@ My plan:
 Notes:
 
 I used react-native-elements module to use cards for the UI (npm install @rneui/themed @rneui/base).
-Added expo linear gradient and tabs. 
+Added expo linear gradient and tabs. Changed issue with the city input where it would change in real time according to the value in the inputText box. 
 
 
 

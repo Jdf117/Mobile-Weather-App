@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import { Card } from '@rneui/themed';
+import { styles } from '@/styles/styles'
 
 export default function AboutScreen() {
   return (
@@ -19,17 +20,17 @@ export default function AboutScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: '100%',
-    backgroundColor: '#25292e',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    color: 'black',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     width: '100%',
+//     backgroundColor: '#25292e',
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+//   text: {
+//     color: 'black',
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+// });

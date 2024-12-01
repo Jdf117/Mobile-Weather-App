@@ -2,10 +2,10 @@ import { Text, View, StyleSheet, Button, TextInput, TouchableOpacity, ScrollView
 import React, { useState, useEffect } from 'react';
 import getWeatherForecast from '../../service/weatherService';
 import { Card } from '@rneui/themed';
+import { styles } from '@/styles/styles';
 import {LinearGradient} from 'expo-linear-gradient';
 
-import axios from 'axios';
-import {Link} from 'expo-router';
+import * as Location from 'expo-location';
 
 
 type Weather = {
@@ -27,11 +27,40 @@ type ForecastDay = {
 };
 
 export default function App () {
-  const [city, setCity] = useState('');  // Default to Vancouver
+  const [city, setCity] = useState('');  
+  const [cityInput, setCityInput] = useState('');
   const [currentWeather, setCurrentWeather] = useState<Weather | null>(null);  // Current weather data
   const [forecast, setForecast] = useState<ForecastDay[]>([]);  // 5-day forecast data
   const [error, setError] = useState('');
+  const [location, setLocation] = useState();
 
+  // useEffect(() => {
+  //   async function getCurrentLocation() {
+      
+  //     let { status } = await Location.requestForegroundPermissionsAsync();
+  //     if (status !== 'granted') {
+  //       setError('Permission to access location was denied');
+  //       return;
+  //     }
+
+  //     let currentLocation = await Location.getCurrentPositionAsync({});
+  //     setLocation(currentLocation);
+  //     console.log(currentLocation);
+  //   }
+
+  //   getCurrentLocation();
+  // }, []);
+
+  // let text = 'Waiting...';
+  // if (error) {
+  //   text = error;
+  // } else if (location) {
+  //   text = JSON.stringify(location);
+  // }
+
+  // const geocode = async () => {
+  //   const geoCodedLocation = await Lcat
+  // }
 
     // Function to fetch weather and forecast for the given city
     const fetchWeather = async (city: any) => {
@@ -56,6 +85,11 @@ export default function App () {
       fetchWeather(city);
     }, []);
 
+    const handlePress = () => {
+      setCity(cityInput);
+      fetchWeather(cityInput);
+    }
+
   return (
     <>
     <View style={styles.myBackground}>
@@ -65,10 +99,11 @@ export default function App () {
       <Card containerStyle={{borderRadius: 10}}>
       <View style={styles.container}>
         <Card.Title style={{marginTop: 10}} >Enter your location!</Card.Title>
-        <TextInput style={styles.input} value={city} placeholder="Input your city" onChangeText={setCity}/>
-        <TouchableOpacity style={styles.button}><Button title="Forecast" onPress={() => fetchWeather(city)}/></TouchableOpacity>
+        <TextInput style={styles.input} value={cityInput} placeholder="Input your city" onChangeText={setCityInput}/>
+        <TouchableOpacity style={styles.button}><Button title="Forecast" onPress={handlePress}/></TouchableOpacity>
       </View>
 
+      <Text>{location}</Text>
       </Card>
          {/* Display Current Weather */}
         <Card containerStyle={{borderRadius: 10}}>
@@ -113,84 +148,5 @@ export default function App () {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width:'100%',
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }, 
-  myBackground:{
-    flex: 1,
-    backgroundColor: '#25292e',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  gradient: {
-    flex: 1,
-    height: 570,
-    width: 500,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text:{
-    color: '#fff',
-  },
-  button:{
-    fontSize: 20,
-    textDecorationLine: 'underline',
-    color: '#fff',
-    marginBottom: 10
-  },
-  header: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    padding: 10,
-    margin: 10,
-    borderRadius: 5,
-    width: 200
-  },
-  currentWeather:{
-    alignItems: 'center',
-    marginBottom: 30,
-    borderRadius: 10,
-  },
-  forecastContainer: {
-    alignItems: 'center'
-  },
-  description:{
-    marginBottom: 5,
-    fontStyle: 'normal',
-  },
-  temp:{
-    marginBottom: 5,
-    color: 'red'
-  },
-  humidity:{
-    marginBottom: 5,
-    color: '#57aacf'
-  },
-  linearGradient: {
-    flex: 1,
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 5
-  },
-  buttonText: {
-    fontSize: 18,
-    fontFamily: 'Gill Sans',
-    textAlign: 'center',
-    margin: 10,
-    color: '#ffffff',
-    backgroundColor: 'transparent',
-  },
-
-});
 
 
